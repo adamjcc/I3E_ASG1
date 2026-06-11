@@ -10,5 +10,5 @@ public interface IInteractible
     /// Interacts with the GameObject
     /// </summary>
     /// <returns>Score from the interaction</returns>
-    int Interact();
+    void Interact();
 }

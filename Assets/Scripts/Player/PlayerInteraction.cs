@@ -12,11 +12,11 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField] private float interactionRange = 2f; // how close player needs to be for raycast to fire
     [SerializeField] private LayerMask raycastLayer; // raycast can ONLY hit this layer of gameobj
 
-    [SerializeField] private UIManager MyUIManager;
+    //[SerializeField] private UIManager MyUIManager;
 
     private IInteractible currentInteractible; // saves objs that can be interacted with
 
-    int score = 0;
+    //int score = 0;
 
     private void Start()
     {
@@ -37,31 +37,29 @@ public class PlayerInteraction : MonoBehaviour
         {
             if (hit.collider.gameObject.TryGetComponent<IInteractible>(out currentInteractible)) // if obj is Interactible
             {
-                Debug.Log($"Raycast hit Object! (Obj: {currentInteractible})!");
-                MyUIManager.ToggleInteractText(true);
+                UIManager.instance.ToggleInteractText(true);
             }
             else
             {
                 currentInteractible = null;
-                MyUIManager.ToggleInteractText(false);
+                UIManager.instance.ToggleInteractText(false);
             }
         }
         else
         {
             currentInteractible = null;
-            MyUIManager.ToggleInteractText(false);
+            UIManager.instance.ToggleInteractText(false);
         }
     }
 
-    void OnInteract(InputValue value)
+    private void OnInteract(InputValue value)
     {
         Debug.Log("E pressed (interact)");
         
         if (currentInteractible != null)
         {
-            score += currentInteractible.Interact();
-            MyUIManager.SetScore(score);
-            Debug.Log($"Score added + Menu changed (Interactible: {currentInteractible} | Score: {score})");
+            currentInteractible.Interact();
+            Debug.Log($"PLAYER: Object interacted with (Interactible: {currentInteractible})");
         }
     }
 

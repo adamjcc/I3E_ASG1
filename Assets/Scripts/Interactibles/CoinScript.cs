@@ -4,28 +4,16 @@ public class CoinScript : MonoBehaviour, IInteractible
 {
     [SerializeField] private int score = 10;
 
-    public int Interact()
+    public void Interact()
     {
         // Hide coin
         var render = GetComponent<MeshRenderer>();
         render.enabled = false;
 
-        Debug.Log($"Coin, Interacted! (score: {score})");
+        Debug.Log($"COINSCRIPT: Coin, Interacted! (score: {score})");
 
         GetComponent<Collider>().enabled = false; // cannot interact anymore
 
-        return score;
+        ScoreManager.instance.AddScore(score);
     }
-
-    //// Start is called once before the first execution of Update after the MonoBehaviour is created
-    //void Start()
-    //{
-        
-    //}
-
-    //// Update is called once per frame
-    //void Update()
-    //{
-        
-    //}
 }

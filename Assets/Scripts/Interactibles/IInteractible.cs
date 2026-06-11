@@ -7,9 +7,9 @@
 public interface IInteractible
 {
     /// <summary>
-    /// Interacts with the GameObject and displays custom Interact message
+    /// Interacts with the GameObject
     /// </summary>
-    /// <returns>Score from the interaction</returns>
+    /// <returns>Custom interact message</returns>
     string GetInteractText();
     void Interact();
 }

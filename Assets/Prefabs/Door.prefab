@@ -598,6 +598,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80dfc81d9dceb5642be366aa43e7dbba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DoorScript
+  isLocked: 0
+  promptText: Door Locked!
 --- !u!1 &8425480332724903009
 GameObject:
   m_ObjectHideFlags: 0

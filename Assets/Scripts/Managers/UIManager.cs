@@ -1,11 +1,15 @@
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
     public static UIManager instance { get; private set; }
 
+    [SerializeField] private GameObject MenuPanel;
+    [SerializeField] private GameObject GameOverPanel;
+    //[SerializeField] private GameObject GameWinPanel;
     [SerializeField] private TMP_Text InteractText;
     [SerializeField] private TMP_Text ScoreText;
     [SerializeField] private TMP_Text HealthText;
@@ -28,10 +32,25 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        ScoreText.text = $"Score: 0";
-        HealthText.text = $"Health: 0";
+        MenuPanel.SetActive(false);
+        GameOverPanel.SetActive(false);
         InventoryText.enabled = false;
         PromptText.enabled = false;
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void ToggleMenu()
+    {
+        MenuPanel.SetActive(!MenuPanel.activeSelf);
+    }
+
+    public void SetGameOverMenu()
+    {
+        GameOverPanel.SetActive(true);
     }
 
     public void SetInteractText(bool isVisible, string interactMessage = "")
@@ -46,14 +65,13 @@ public class UIManager : MonoBehaviour
         PromptText.text = promptMessage;
     }
 
-    public void SetPromptText(string interactMessage)
-    {
-
-    }
-
     public void SetScore(int newScore)
     {
-        Debug.Log($"UIMANAGER: Set Score (Amt: {newScore})");
         ScoreText.text = $"Score: {newScore}";
+    }
+
+    public void SetHealthText(int currentHealth, int maxHealth)
+    {
+        HealthText.text = $"Health: {currentHealth} / {maxHealth}";
     }
 }

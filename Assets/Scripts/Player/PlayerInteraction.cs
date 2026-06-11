@@ -12,11 +12,7 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField] private float interactionRange = 2f; // how close player needs to be for raycast to fire
     [SerializeField] private LayerMask raycastLayer; // raycast can ONLY hit this layer of gameobj
 
-    //[SerializeField] private UIManager MyUIManager;
-
     private IInteractible currentInteractible; // saves objs that can be interacted with
-
-    //int score = 0;
 
     private void Update()
     {
@@ -59,6 +55,12 @@ public class PlayerInteraction : MonoBehaviour
             currentInteractible.Interact();
             Debug.Log($"PLAYER: Success - Object interacted with (Interactible: {currentInteractible})");
         }
+    }
+
+    private void OnMenu(InputValue value)
+    {
+        GameManager.instance.TogglePause();
+        Debug.Log($"PLAYER: Esc pressed");
     }
 
 

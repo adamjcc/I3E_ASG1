@@ -18,11 +18,6 @@ public class PlayerInteraction : MonoBehaviour
 
     //int score = 0;
 
-    private void Start()
-    {
-        Debug.Log(raycastLayer.value);
-    }
-
     private void Update()
     {
         PerformRaycast();
@@ -37,29 +32,32 @@ public class PlayerInteraction : MonoBehaviour
         {
             if (hit.collider.gameObject.TryGetComponent<IInteractible>(out currentInteractible)) // if obj is Interactible
             {
-                UIManager.instance.ToggleInteractText(true);
+                UIManager.instance.SetInteractText(true, currentInteractible.GetInteractText()); // changes Interact message according to gameObject
+
             }
             else
             {
                 currentInteractible = null;
-                UIManager.instance.ToggleInteractText(false);
+                UIManager.instance.SetInteractText(false);
+                UIManager.instance.SetPromptText(false);
             }
         }
         else
         {
             currentInteractible = null;
-            UIManager.instance.ToggleInteractText(false);
+            UIManager.instance.SetInteractText(false);
+            UIManager.instance.SetPromptText(false);
         }
     }
 
     private void OnInteract(InputValue value)
     {
-        Debug.Log("E pressed (interact)");
+        Debug.Log("PLAYER: E pressed (interact)");
         
         if (currentInteractible != null)
         {
             currentInteractible.Interact();
-            Debug.Log($"PLAYER: Object interacted with (Interactible: {currentInteractible})");
+            Debug.Log($"PLAYER: Success - Object interacted with (Interactible: {currentInteractible})");
         }
     }
 

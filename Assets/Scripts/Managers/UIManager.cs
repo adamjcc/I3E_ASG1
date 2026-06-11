@@ -34,13 +34,21 @@ public class UIManager : MonoBehaviour
         PromptText.enabled = false;
     }
 
-    public void ToggleInteractText(bool isVisible)
+    public void SetInteractText(bool isVisible, string interactMessage = "")
     {
-        if (isVisible == true)
-        {
-            Debug.Log($"UIMANAGER: Toggled InteractText! (isVisible: {isVisible})");
-        }
         InteractText.enabled = isVisible;
+        InteractText.text = interactMessage;
+    }
+
+    public void SetPromptText(bool isVisible, string promptMessage = "")
+    {
+        PromptText.enabled = isVisible;
+        PromptText.text = promptMessage;
+    }
+
+    public void SetPromptText(string interactMessage)
+    {
+
     }
 
     public void SetScore(int newScore)

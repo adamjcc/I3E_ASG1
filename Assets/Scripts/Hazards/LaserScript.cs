@@ -2,9 +2,7 @@ using UnityEngine;
 
 public class LaserScript : MonoBehaviour
 {
-    //private bool isActive;
-
-    [SerializeField] private float damagePerSecond = 10f;
+    [SerializeField] private float damagePerSecond = 20f;
 
     private void OnTriggerStay(Collider other)
     {
@@ -12,5 +10,10 @@ public class LaserScript : MonoBehaviour
         {
             playerHealth.HealthLoss(damagePerSecond * Time.deltaTime);
         }
+    }
+
+    private void DeactivateLaser()
+    {
+        gameObject.SetActive(false);
     }
 }

@@ -4,7 +4,7 @@
 //How many collectibles are left
 //Whether all collectibles are collected
 
-using Unity.VisualScripting;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
@@ -18,14 +18,15 @@ public class ScoreManager : MonoBehaviour
             Destroy(gameObject);
         }
         else
-        {
-            instance = this;
-        }
+        { instance = this; }
     }
 
     private int currentGemAmount = 0;
     private int maxGemAmount;
     private int score = 0;
+
+    private List<string> secretButtonsFound = new List<string>();
+    public System.Action SecretButtonEvent;
 
     private void Start()
     {
@@ -52,6 +53,18 @@ public class ScoreManager : MonoBehaviour
         if (currentGemAmount == maxGemAmount)
         {
             GameManager.instance.SetGameWin();
+        }
+    }
+
+    public void AddSecretButton(string buttonName)
+    {
+        if (secretButtonsFound.Contains(buttonName) == false)
+        {
+            secretButtonsFound.Add(buttonName);
+            if (secretButtonsFound.Count == 2)
+            {
+                SecretButtonEvent?.Invoke();
+            }
         }
     }
 }

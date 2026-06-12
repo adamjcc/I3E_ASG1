@@ -1,7 +1,4 @@
-using NUnit.Framework;
 using System.Collections.Generic;
-using System.Linq;
-using UnityEditor;
 using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
@@ -15,9 +12,7 @@ public class InventoryManager : MonoBehaviour
             Destroy(gameObject);
         }
         else
-        {
-            instance = this;
-        }
+        { instance = this; }
     }
 
     private List<string> inventoryList = new List<string>();

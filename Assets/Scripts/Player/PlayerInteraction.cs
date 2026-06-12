@@ -56,7 +56,7 @@ public class PlayerInteraction : MonoBehaviour
     private void OnInteract(InputValue value)
     {
         Debug.Log("PLAYER: E pressed (interact)");
-        
+
         if (currentInteractible != null)
         {
             currentInteractible.Interact();

@@ -1,13 +1,14 @@
 using System.Collections.Generic;
 using System.Text;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
     public static UIManager instance { get; private set; }
+
+    private AudioSource audioSourceGameOver;
+    private AudioSource audioSourceMenu;
 
     [SerializeField] private GameObject MenuPanel;
     [SerializeField] private GameObject GameOverPanel;
@@ -22,35 +23,43 @@ public class UIManager : MonoBehaviour
 
     private int score;
 
-
     private void Awake()
     {
-        if (instance != null && instance != this) {
-            Destroy(gameObject);
-        }
+        if (instance != null && instance != this)
+        { Destroy(gameObject); }
         else
-        {
-            instance = this;
-        }
+        { instance = this; }
     }
 
     private void Start()
     {
+        MenuPanel.SetActive(true);
         MenuPanel.SetActive(false);
         GameOverPanel.SetActive(false);
         GameWinPanel.SetActive(false);
         InventoryText.enabled = false;
         PromptText.enabled = false;
+
+        audioSourceGameOver = GameOverPanel.GetComponent<AudioSource>();
+        audioSourceMenu = MenuPanel.GetComponent<AudioSource>();
     }
 
     public void ToggleMenu()
     {
         MenuPanel.SetActive(!MenuPanel.activeSelf);
+        if (audioSourceMenu != null)
+        {
+            audioSourceMenu.Play();
+        }
     }
 
     public void SetGameOverMenu()
     {
         GameOverPanel.SetActive(true);
+        if (audioSourceGameOver != null)
+        {
+            audioSourceMenu.Play();
+        }
     }
 
     public void SetGameWinMenu()

@@ -12,9 +12,7 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
         else
-        {
-            instance = this;
-        }
+        { instance = this; }
     }
 
     enum GameState { Playing, Paused, GameWin, GameOver }
@@ -51,9 +49,9 @@ public class GameManager : MonoBehaviour
     {
         Application.Quit(); // Closes the built game application
 
-        #if (UNITY_EDITOR)
-            UnityEditor.EditorApplication.isPlaying = false; // Stops play mode in the editor
-        #endif
+#if (UNITY_EDITOR)
+        UnityEditor.EditorApplication.isPlaying = false; // Stops play mode in the editor
+#endif
     }
 
     public void SetGameOver()
@@ -72,7 +70,7 @@ public class GameManager : MonoBehaviour
         Debug.Log($"GAMEMANAGER: Game Win triggered");
     }
 
-    private void ToggleMenuConfig(bool isOn) 
+    private void ToggleMenuConfig(bool isOn)
     {
         if (isOn == true)
         {

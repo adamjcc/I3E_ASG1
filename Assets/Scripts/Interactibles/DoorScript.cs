@@ -2,15 +2,19 @@ using UnityEngine;
 
 public class DoorScript : MonoBehaviour, IInteractible
 {
+    private AudioSource audioSource;
     [SerializeField] private GameObject lockVisual;
     [SerializeField] private bool isLocked = false;
     [SerializeField] private GameObject keyRequired;
     private string keyRequiredName;
-    private string promptText = "Door Locked! (Requires Key)";
+    private string promptLockedText = "Door Locked! (Requires Key)";
+    private string promptUnlockedText = "Door Unlocked!";
     private bool isClosed = true;
 
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+
         lockVisual.SetActive(isLocked); // show Lock visual if door is locked, and vise versa
         if (keyRequired == null)
         {
@@ -24,13 +28,13 @@ public class DoorScript : MonoBehaviour, IInteractible
 
     public string GetInteractText()
     {
-        if (isClosed == true) 
-        { 
+        if (isClosed == true)
+        {
             if (isLocked == true)
             {
                 return "E to Unlock Door";
             }
-            else 
+            else
             {
                 return "E to Open Door";
             }
@@ -45,18 +49,23 @@ public class DoorScript : MonoBehaviour, IInteractible
     {
         if (isLocked == true && InventoryManager.instance.HasItem(keyRequiredName) == false)
         {
-            UIManager.instance.SetPromptText(true, promptText);
+            UIManager.instance.SetPromptText(true, promptLockedText);
         }
-        else 
+        else
         {
             if (isLocked == true)
             {
+                UIManager.instance.SetPromptText(true, promptUnlockedText);
                 InventoryManager.instance.RemoveItem(keyRequiredName);
                 isLocked = false;
                 lockVisual.SetActive(false);
             }
 
             OpenCloseDoor();
+            if (audioSource != null)
+            {
+                audioSource.Play();
+            }
         }
     }
 

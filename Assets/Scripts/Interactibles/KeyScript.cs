@@ -1,8 +1,8 @@
-using System.Reflection;
 using UnityEngine;
 
 public class KeyScript : MonoBehaviour, IInteractible
 {
+    private AudioSource audioSource;
     private string keyName;
     private string promptText;
 
@@ -10,6 +10,7 @@ public class KeyScript : MonoBehaviour, IInteractible
     {
         keyName = gameObject.name;
         promptText = $"You picked up a {keyName}!";
+        audioSource = GetComponent<AudioSource>();
     }
 
     public string GetInteractText()
@@ -19,6 +20,11 @@ public class KeyScript : MonoBehaviour, IInteractible
 
     public void Interact()
     {
+        if (audioSource != null)
+        {
+            audioSource.Play();
+        }
+
         // Hide key
         GetComponentInChildren<Renderer>().enabled = false;
 

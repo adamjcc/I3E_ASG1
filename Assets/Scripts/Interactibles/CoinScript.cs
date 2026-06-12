@@ -17,7 +17,5 @@ public class CoinScript : MonoBehaviour, IInteractible
         ScoreManager.instance.AddScore(score);
 
         gameObject.SetActive(false); // cannot interact anymore
-
-        Debug.Log($"COINSCRIPT: Coin, Interacted + Hidden! (score: {score})");
     }
 }

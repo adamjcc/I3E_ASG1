@@ -29,7 +29,6 @@ public class PlayerInteraction : MonoBehaviour
             if (hit.collider.gameObject.TryGetComponent<IInteractible>(out currentInteractible)) // if obj is Interactible
             {
                 UIManager.instance.SetInteractText(true, currentInteractible.GetInteractText()); // changes Interact message according to gameObject
-
             }
             else
             {
@@ -43,6 +42,14 @@ public class PlayerInteraction : MonoBehaviour
             currentInteractible = null;
             UIManager.instance.SetInteractText(false);
             UIManager.instance.SetPromptText(false);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.TryGetComponent<DoorScript>(out DoorScript doorScript))
+        {
+            doorScript.CloseDoor();
         }
     }
 

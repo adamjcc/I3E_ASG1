@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1466893133498899968}
-  - component: {fileID: 329326415412647459}
   - component: {fileID: 745955014626257975}
+  - component: {fileID: 780457360694335626}
   m_Layer: 6
   m_Name: Coin
   m_TagString: Untagged
@@ -34,8 +34,21 @@ Transform:
   - {fileID: 6787941555857118056}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &329326415412647459
-SphereCollider:
+--- !u!114 &745955014626257975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2826658073936916423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c629ba510acb50b4ab113703d7dcd51a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CoinScript
+  score: 10
+--- !u!65 &780457360694335626
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -53,21 +66,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.7
+  m_Size: {x: 1, y: 1, z: 0.25}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &745955014626257975
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2826658073936916423}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c629ba510acb50b4ab113703d7dcd51a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CoinScript
-  score: 10
 --- !u!1001 &3890001397944978500
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -86,7 +86,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6918556219583511552, guid: 6a301d09debaf1e4a8d3e2657cc44a96, type: 3}
       propertyPath: floatHeight
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6954758372675618198, guid: 6a301d09debaf1e4a8d3e2657cc44a96, type: 3}
       propertyPath: m_Name

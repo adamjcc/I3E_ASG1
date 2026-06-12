@@ -367,7 +367,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 7039
+  m_VersionIndex: 7048
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -585,7 +585,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4, y: 4, z: 3}
+  m_Size: {x: 4, y: 4, z: 2}
   m_Center: {x: -2, y: 2, z: 0}
 --- !u!114 &558597023555352679
 MonoBehaviour:
@@ -601,7 +601,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DoorScript
   lockVisual: {fileID: 1592313720085346081}
   isLocked: 0
-  promptText: Door Locked!
+  keyRequired: {fileID: 0}
 --- !u!1 &8425480332724903009
 GameObject:
   m_ObjectHideFlags: 0
@@ -969,7 +969,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 7039
+  m_VersionIndex: 7048
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []

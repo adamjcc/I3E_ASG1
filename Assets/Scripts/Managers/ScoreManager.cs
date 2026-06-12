@@ -23,10 +23,15 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
+    private int currentGemAmount = 0;
+    private int maxGemAmount;
     private int score = 0;
 
     private void Start()
     {
+        GemScript[] gemsInScene = FindObjectsByType<GemScript>(FindObjectsSortMode.None);
+        maxGemAmount = gemsInScene.Length;
+        UIManager.instance.SetGemGoalText(currentGemAmount, maxGemAmount);
         UIManager.instance.SetScoreText(score);
     }
 
@@ -34,5 +39,19 @@ public class ScoreManager : MonoBehaviour
     {
         score += newScore;
         UIManager.instance.SetScoreText(score);
+    }
+
+    public void AddGem(int newScore)
+    {
+        score += newScore;
+        currentGemAmount += 1;
+
+        UIManager.instance.SetScoreText(score);
+        UIManager.instance.SetGemGoalText(currentGemAmount, maxGemAmount);
+
+        if (currentGemAmount == maxGemAmount)
+        {
+            GameManager.instance.SetGameWin();
+        }
     }
 }

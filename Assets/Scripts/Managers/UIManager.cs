@@ -11,12 +11,14 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] private GameObject MenuPanel;
     [SerializeField] private GameObject GameOverPanel;
+    [SerializeField] private GameObject GameWinPanel;
     //[SerializeField] private GameObject GameWinPanel;
     [SerializeField] private TMP_Text InteractText;
     [SerializeField] private TMP_Text ScoreText;
     [SerializeField] private TMP_Text HealthText;
     [SerializeField] private TMP_Text PromptText;
     [SerializeField] private TMP_Text InventoryText;
+    [SerializeField] private TMP_Text GemGoalText;
 
     private int score;
 
@@ -36,13 +38,9 @@ public class UIManager : MonoBehaviour
     {
         MenuPanel.SetActive(false);
         GameOverPanel.SetActive(false);
+        GameWinPanel.SetActive(false);
         InventoryText.enabled = false;
         PromptText.enabled = false;
-    }
-
-    public void Restart()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void ToggleMenu()
@@ -53,6 +51,16 @@ public class UIManager : MonoBehaviour
     public void SetGameOverMenu()
     {
         GameOverPanel.SetActive(true);
+    }
+
+    public void SetGameWinMenu()
+    {
+        GameWinPanel.SetActive(true);
+    }
+
+    public void SetGemGoalText(int currentAmount, int maxAmount)
+    {
+        GemGoalText.text = $"{currentAmount} / {maxAmount} Gems Collected";
     }
 
     public void SetInteractText(bool isVisible, string interactMessage = "")

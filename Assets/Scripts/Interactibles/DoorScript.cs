@@ -56,13 +56,32 @@ public class DoorScript : MonoBehaviour, IInteractible
                 lockVisual.SetActive(false);
             }
 
+            OpenCloseDoor();
+        }
+    }
+
+    private void OpenCloseDoor()
+    {
+        if (isLocked == false)
+        {
             var animatorComponent = GetComponentsInChildren<Animator>();
 
             foreach (var animator in animatorComponent)
-            {
-                animator.SetBool("IsOpen", isClosed);
-            }
-            
+            { animator.SetBool("IsOpen", isClosed); }
+
+            isClosed = !isClosed;
+        }
+    }
+
+    public void CloseDoor()
+    {
+        if (isLocked == false && isClosed == false)
+        {
+            var animatorComponent = GetComponentsInChildren<Animator>();
+
+            foreach (var animator in animatorComponent)
+            { animator.SetBool("IsOpen", isClosed); }
+
             isClosed = !isClosed;
         }
     }

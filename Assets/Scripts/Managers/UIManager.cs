@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Text;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -65,7 +67,7 @@ public class UIManager : MonoBehaviour
         PromptText.text = promptMessage;
     }
 
-    public void SetScore(int newScore)
+    public void SetScoreText(int newScore)
     {
         ScoreText.text = $"Score: {newScore}";
     }
@@ -73,5 +75,25 @@ public class UIManager : MonoBehaviour
     public void SetHealthText(int currentHealth, int maxHealth)
     {
         HealthText.text = $"Health: {currentHealth} / {maxHealth}";
+    }
+
+    public void SetInventoryText(List<string> inventoryList)
+    {
+        if (inventoryList.Count == 0)
+        {
+            InventoryText.text = "";
+            InventoryText.enabled = false;
+        }
+        else
+        {
+            StringBuilder text = new StringBuilder();
+            text.AppendLine("Inventory:");
+            foreach (string item in inventoryList)
+            {
+                text.AppendLine("- " + item);
+                InventoryText.text = text.ToString();
+                InventoryText.enabled = true;
+            }
+        }
     }
 }

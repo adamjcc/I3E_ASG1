@@ -1,16 +1,65 @@
+using NUnit.Framework;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEditor;
 using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public static InventoryManager instance { get; private set; }
+    private void Awake()
     {
-        
+        if (instance != null && instance != this)
+        {
+            Debug.Log($"ERROR! Duplicate instance found (Instance: {instance})");
+            Destroy(gameObject);
+        }
+        else
+        {
+            instance = this;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private List<string> inventoryList = new List<string>();
+
+    public bool HasItem(string newItem)
     {
-        
+        if (newItem != "")
+        {
+            if (inventoryList.Contains(newItem))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public void AddItem(string newItem)
+    {
+        if (inventoryList.Contains(newItem) == false)
+        {
+            inventoryList.Add(newItem);
+            UIManager.instance.SetInventoryText(inventoryList);
+        }
+    }
+
+    public void RemoveItem(string newItem)
+    {
+        if (inventoryList.Contains(newItem) == true)
+        {
+            inventoryList.Remove(newItem);
+            UIManager.instance.SetInventoryText(inventoryList);
+        }
+        else
+        {
+            Debug.Log($"INVMANAGER: ERROR! RemoveItem called, but item not found (item: {newItem}");
+        }
     }
 }

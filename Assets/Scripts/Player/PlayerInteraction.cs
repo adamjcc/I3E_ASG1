@@ -53,7 +53,7 @@ public class PlayerInteraction : MonoBehaviour
         if (currentInteractible != null)
         {
             currentInteractible.Interact();
-            Debug.Log($"PLAYER: Success - Object interacted with (Interactible: {currentInteractible})");
+            Debug.Log($"PLAYER: SUCCESS - Interacted with Interactible: {currentInteractible}");
         }
     }
 

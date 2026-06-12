@@ -3,7 +3,6 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance { get; private set; }
-
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -20,10 +19,10 @@ public class GameManager : MonoBehaviour
     enum GameState { Playing, Paused, GameWin, GameOver }
     private GameState currentGameState;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         currentGameState = GameState.Playing;
+        Time.timeScale = 1;
         ToggleCursorVisible(false);
     }
 
@@ -32,11 +31,13 @@ public class GameManager : MonoBehaviour
         if (currentGameState == GameState.Playing) // when player opens Menu
         {
             currentGameState = GameState.Paused;
+            Time.timeScale = 0;
             ToggleCursorVisible(true);
         }
         else if (currentGameState == GameState.Paused) // when player leaves Menu
         {
             currentGameState = GameState.Playing;
+            Time.timeScale = 1;
             ToggleCursorVisible(false);
         }
 
@@ -47,6 +48,7 @@ public class GameManager : MonoBehaviour
     public void SetGameOver()
     {
         currentGameState = GameState.GameOver;
+        Time.timeScale = 0;
         UIManager.instance.SetGameOverMenu();
         ToggleCursorVisible(true);
     }

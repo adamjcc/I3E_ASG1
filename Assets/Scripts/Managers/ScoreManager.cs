@@ -36,6 +36,11 @@ public class ScoreManager : MonoBehaviour
         UIManager.instance.SetScoreText(score);
     }
 
+    public int GetScore()
+    {
+        return score;
+    }
+
     public void AddScore(int newScore)
     {
         score += newScore;

@@ -4,10 +4,12 @@
  * Description: Increments gem and score count in ScoreManager upon player interacting with it
  */
 
+using System.Collections;
 using UnityEngine;
 
 public class GemScript : MonoBehaviour, IInteractible
 {
+    private float delayTime = 2f;
     private AudioSource audioSource;
     [SerializeField] private int score = 50;
     private string gemName;
@@ -30,11 +32,18 @@ public class GemScript : MonoBehaviour, IInteractible
             audioSource.Play();
         }
 
-        // Hide gem
+        // Hide gameObject & disable Raycast right after audio plays
         GetComponentInChildren<Renderer>().enabled = false;
+        GetComponentInChildren<Collider>().enabled = false;
 
         ScoreManager.instance.AddGem(score);
 
+        StartCoroutine(DelaySequence());
+    }
+
+    private IEnumerator DelaySequence()
+    {
+        yield return new WaitForSeconds(delayTime);
         gameObject.SetActive(false); // cannot interact anymore
     }
 }

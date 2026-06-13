@@ -18,6 +18,7 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] private GameObject MenuPanel;
     [SerializeField] private GameObject GameOverPanel;
+    [SerializeField] private TMP_Text EndScoreText;
     [SerializeField] private GameObject GameWinPanel;
     //[SerializeField] private GameObject GameWinPanel;
     [SerializeField] private TMP_Text InteractText;
@@ -52,10 +53,21 @@ public class UIManager : MonoBehaviour
 
     public void ToggleMenu()
     {
-        MenuPanel.SetActive(!MenuPanel.activeSelf);
-        if (audioSourceMenu != null)
+        if (MenuPanel.activeInHierarchy)
         {
-            audioSourceMenu.Play();
+            if (audioSourceMenu != null)
+            {
+                audioSourceMenu.Play();
+            }
+            MenuPanel.SetActive(!MenuPanel.activeSelf);
+        }
+        else
+        {
+            MenuPanel.SetActive(!MenuPanel.activeSelf);
+            if (audioSourceMenu != null)
+            {
+                audioSourceMenu.Play();
+            }
         }
     }
 
@@ -64,13 +76,14 @@ public class UIManager : MonoBehaviour
         GameOverPanel.SetActive(true);
         if (audioSourceGameOver != null)
         {
-            audioSourceMenu.Play();
+            audioSourceGameOver.Play();
         }
     }
 
     public void SetGameWinMenu()
     {
         GameWinPanel.SetActive(true);
+        EndScoreText.text = $"Score: {ScoreManager.instance.GetScore()}";
     }
 
     public void SetGemGoalText(int currentAmount, int maxAmount)

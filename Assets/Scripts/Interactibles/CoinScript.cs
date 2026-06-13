@@ -4,10 +4,12 @@
  * Description: Make coin score interact with ScoreManager.cs and hide coin once interacted with
  */
 
+using System.Collections;
 using UnityEngine;
 
 public class CoinScript : MonoBehaviour, IInteractible
 {
+    private float delayTime = 2f;
     private AudioSource audioSource;
     [SerializeField] private int score = 10;
 
@@ -28,11 +30,19 @@ public class CoinScript : MonoBehaviour, IInteractible
             audioSource.Play();
         }
 
-        // Hide coin
+        // Hide gameObject & disable Raycast right after audio plays
         GetComponentInChildren<Renderer>().enabled = false;
+        GetComponentInChildren<Collider>().enabled = false;
 
         ScoreManager.instance.AddScore(score);
 
+        StartCoroutine(DelaySequence());
+    }
+
+    private IEnumerator DelaySequence()
+    {
+        yield return new WaitForSeconds(delayTime);
         gameObject.SetActive(false); // cannot interact anymore
+
     }
 }

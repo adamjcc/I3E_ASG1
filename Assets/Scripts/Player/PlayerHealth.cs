@@ -37,4 +37,11 @@ public class PlayerHealth : MonoBehaviour
 
         UIManager.instance.SetHealthText((int)(currentHealth), (int)(maxHealth));
     }
+
+    public void SetHealth(float amount)
+    {
+        currentHealth = amount;
+
+        UIManager.instance.SetHealthText((int)(currentHealth), (int)(maxHealth));
+    }
 }

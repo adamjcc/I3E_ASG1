@@ -13,7 +13,7 @@ public class DoorScript : MonoBehaviour, IInteractible
     [SerializeField] private bool isLocked = false;
     [SerializeField] private GameObject keyRequired;
     private string keyRequiredName;
-    private string promptLockedText = "Door Locked! (Requires Key)";
+    private string promptLockedText = "Door Locked!";
     private string promptUnlockedText = "Door Unlocked!";
     private bool isClosed = true;
 
@@ -29,6 +29,7 @@ public class DoorScript : MonoBehaviour, IInteractible
         else
         {
             keyRequiredName = keyRequired.name;
+            promptLockedText = $"Door Locked! ({keyRequiredName} required)";
         }
     }
 

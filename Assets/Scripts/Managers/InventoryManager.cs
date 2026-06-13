@@ -1,3 +1,9 @@
+/*
+ * Author: Adam Clark
+ * Date: 10 June 2026
+ * Description: Manages & stores inventory items for game using Singleton instances
+ */
+
 using System.Collections.Generic;
 using UnityEngine;
 

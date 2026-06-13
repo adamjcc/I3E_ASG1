@@ -1,3 +1,9 @@
+/*
+ * Author: Adam Clark
+ * Date: 11 June 2026
+ * Description: Manages playerHealth loss when boulder's touched, and resets boulder every few seconds using Coroutines
+ */
+
 using System.Collections;
 using UnityEngine;
 

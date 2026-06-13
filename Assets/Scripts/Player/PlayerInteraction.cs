@@ -1,7 +1,7 @@
 /*
  * Author: Adam Clark
  * Date: 9 June 2026
- * Description: Handles projecting a raycast from the screen center to find and execute IInteractible objects
+ * Description: Handles player interactions with Raycasting, as well as ensuring key inputs work properly (e.g. E, Esc)
  */
 
 using UnityEngine;

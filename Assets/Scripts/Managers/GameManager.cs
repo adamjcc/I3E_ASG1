@@ -1,3 +1,9 @@
+/*
+ * Author: Adam Clark
+ * Date: 10 June 2026
+ * Description: Manages game states, menu popup and win/loss conditions using Singleton instances
+ */
+
 using UnityEngine;
 using UnityEngine.SceneManagement;
 

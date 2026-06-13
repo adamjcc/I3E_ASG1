@@ -1,3 +1,9 @@
+/*
+ * Author: Adam Clark
+ * Date: 12 June 2026
+ * Description: Disables itself once all secret buttons have been clicked
+ */
+
 using UnityEngine;
 
 public class SecretWallScript : MonoBehaviour

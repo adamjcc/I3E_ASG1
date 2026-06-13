@@ -1,3 +1,9 @@
+/*
+ * Author: Adam Clark
+ * Date: 9 June 2026
+ * Description: Make coin score interact with ScoreManager.cs and hide coin once interacted with
+ */
+
 using UnityEngine;
 
 public class CoinScript : MonoBehaviour, IInteractible

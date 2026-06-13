@@ -1,3 +1,9 @@
+/*
+ * Author: Adam Clark
+ * Date: 10 June 2026
+ * Description: Adds key to players inventory, and allows player to unlock locked doors
+ */
+
 using UnityEngine;
 
 public class KeyScript : MonoBehaviour, IInteractible

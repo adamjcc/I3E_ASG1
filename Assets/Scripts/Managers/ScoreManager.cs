@@ -1,8 +1,8 @@
-//Current score
-//Number of collectibles collected
-//Total collectibles
-//How many collectibles are left
-//Whether all collectibles are collected
+/*
+ * Author: Adam Clark
+ * Date: 10 June 2026
+ * Description: Manages & stores score and adding gems for game using Singleton instances
+ */
 
 using System.Collections.Generic;
 using UnityEngine;

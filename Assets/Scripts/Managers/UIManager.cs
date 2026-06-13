@@ -1,3 +1,9 @@
+/*
+ * Author: Adam Clark
+ * Date: 9 June 2026
+ * Description: Make game UI work for in-game text, menu text or win/loss states
+ */
+
 using System.Collections.Generic;
 using System.Text;
 using TMPro;

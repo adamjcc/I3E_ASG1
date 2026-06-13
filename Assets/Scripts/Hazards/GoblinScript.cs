@@ -1,3 +1,9 @@
+/*
+ * Author: Adam Clark
+ * Date: 11 June 2026
+ * Description: Updates playerHealth once player touches goblin
+ */
+
 using UnityEngine;
 
 public class GoblinScript : MonoBehaviour

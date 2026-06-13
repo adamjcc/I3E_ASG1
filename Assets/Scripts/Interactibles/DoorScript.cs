@@ -1,3 +1,9 @@
+/*
+ * Author: Adam Clark
+ * Date: 10 June 2026
+ * Description: Trigger DoorAnimation when door is interacted with, and show lock visual when locked
+ */
+
 using UnityEngine;
 
 public class DoorScript : MonoBehaviour, IInteractible

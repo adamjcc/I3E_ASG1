@@ -1,3 +1,9 @@
+/*
+ * Author: Adam Clark
+ * Date: 11 June 2026
+ * Description: Triggers deactivation of lasers or secret walls once pressed using Unity Events
+ */
+
 using UnityEngine;
 
 public class ButtonScript : MonoBehaviour, IInteractible

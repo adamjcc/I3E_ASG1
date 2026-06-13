@@ -1,8 +1,8 @@
-//1.Check if game is still playing.
-//2.Subtract damage from currentHealth.
-//3. Prevent health from going below 0.
-//4. Tell UIManager to update HealthText.
-//5. If health is 0, tell GameManager the player died.
+/*
+ * Author: Adam Clark
+ * Date: 10 June 2026
+ * Description: Stores player health and health logic
+ */
 
 using UnityEngine;
 

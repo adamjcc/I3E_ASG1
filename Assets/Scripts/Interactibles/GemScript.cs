@@ -1,3 +1,9 @@
+/*
+ * Author: Adam Clark
+ * Date: 10 June 2026
+ * Description: Increments gem and score count in ScoreManager upon player interacting with it
+ */
+
 using UnityEngine;
 
 public class GemScript : MonoBehaviour, IInteractible

@@ -1,3 +1,9 @@
+/*
+ * Author: Adam Clark
+ * Date: 9 June 2026
+ * Description: Make heart interact with PlayerHealth.cs, adding players health and hide heart once interacted with
+ */
+
 using UnityEngine;
 
 public class HeartScript : MonoBehaviour, IInteractible

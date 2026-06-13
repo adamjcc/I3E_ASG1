@@ -86,7 +86,10 @@ public class UIManager : MonoBehaviour
     private void Awake()
     {
         if (instance != null && instance != this)
-        { Destroy(gameObject); }
+        {
+            Debug.Log($"ERROR! Duplicate instance found (Instance: {instance})");
+            Destroy(gameObject);
+        }
         else
         { instance = this; }
     }

@@ -82,12 +82,10 @@ public class PlayerInteraction : MonoBehaviour
     /// <param name="value">Input value passed by Unity's Input System.</param>
     private void OnInteract(InputValue value)
     {
-        Debug.Log("PLAYER: E pressed (interact)");
 
         if (currentInteractible != null)
         {
             currentInteractible.Interact();
-            Debug.Log($"PLAYER: SUCCESS - Interacted with Interactible: {currentInteractible}");
         }
     }
 
@@ -98,7 +96,6 @@ public class PlayerInteraction : MonoBehaviour
     private void OnMenu(InputValue value)
     {
         GameManager.instance.TogglePause();
-        Debug.Log($"PLAYER: Esc pressed");
     }
 
 
@@ -107,7 +104,6 @@ public class PlayerInteraction : MonoBehaviour
     //    lastTrigger = other.gameObject;
     //    if (other.gameObject.name.StartsWith("Coin"))
     //    {
-    //        Debug.Log("collision coin detected!");
     //    }
     //}
 }

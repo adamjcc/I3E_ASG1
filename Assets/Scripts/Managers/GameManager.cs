@@ -67,7 +67,6 @@ public class GameManager : MonoBehaviour
         }
 
         UIManager.instance.ToggleMenu();
-        Debug.Log($"GAMEMANAGER: Pause Menu toggled - (GameState: {currentGameState})");
     }
 
     /// <summary>
@@ -98,7 +97,6 @@ public class GameManager : MonoBehaviour
         currentGameState = GameState.GameOver;
         UIManager.instance.SetGameOverMenu();
         ToggleMenuConfig(true);
-        Debug.Log($"GAMEMANAGER: Game Over triggered");
     }
 
     /// <summary>
@@ -109,7 +107,6 @@ public class GameManager : MonoBehaviour
         currentGameState = GameState.GameWin;
         UIManager.instance.SetGameWinMenu();
         ToggleMenuConfig(true);
-        Debug.Log($"GAMEMANAGER: Game Win triggered");
     }
 
     /// <summary>

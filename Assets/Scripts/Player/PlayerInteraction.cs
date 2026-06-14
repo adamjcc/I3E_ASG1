@@ -82,7 +82,6 @@ public class PlayerInteraction : MonoBehaviour
     /// <param name="value">Input value passed by Unity's Input System.</param>
     private void OnInteract(InputValue value)
     {
-
         if (currentInteractible != null)
         {
             currentInteractible.Interact();

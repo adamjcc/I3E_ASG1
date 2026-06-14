@@ -270,6 +270,13 @@ To complete the game:
 8. Find and collect all gems.
 9. Once all gems are collected, the game win screen will appear.
 
+To unlock secret entrance to Pink Room (last room):
+
+1. Go to Blue Room, walk towards gem & keys
+2. Turn to the hidden open area and click the blue button
+3. Go to Green Room, repeat steps 1-2
+4. Head out to Green Room and walk straight to find the deactivated walls!
+
 ### Puzzle / Interaction Notes
 
 - Locked doors require their matching key.
